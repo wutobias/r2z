@@ -14,7 +14,7 @@ A general remark on transformations is that the conversion from ZMatrix coordina
 * numpy
 
 ## Examples
-Different examples for how to use this python class, can be found in examples.
+Different examples for how to use this python class can be found in examples.
 
 ## Remark
 The algorithm is quite inefficient for large molecules. Peptides are still ok, but computing proteins might take a while.
