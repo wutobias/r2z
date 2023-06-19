@@ -9,7 +9,7 @@ The transformation from Cartesian coordinates to ZMatrix coordinates is straight
 A general remark on transformations is that the conversion from ZMatrix coordinates to Cartesian coordinates requires 3 reference Cartesian coordinates (e.g. coordinates in a host or protein molecule) and 3 torsion angles, 2 angles and 1 bond length with respect to these coordinates. These coordinates are also called 'virtual coordinates'. For instance, let's say we have the Zmatrix coordinates for a molecule (e.g. a ligand) with 5 atoms: `A-B-C-D-E` and we want to convert them back to Cartesian space. First, we need 3 Cartesian coordinates `X`, `Y`, and `Z` in the reference frame, which can be basically *anything* in the lab coordinate system, as long as it is well defined. Second, we need the torsion angles `X-Y-Z-A`, `Y-Z-A-B`, `Z-A-B-C`, the angles `Y-Z-A`, `Z-A-B` and the bond length `Z-A`. By convention, the Cartesian coordinates of our molecule `A-B-C-D-E` will be shifted to the position of `Z`. The calculation of all these virtual coordinates can be carried out with this python class.
 
 ## Requirements
-* simtk (unit module)
+* pint
 * rdkit
 * numpy
 

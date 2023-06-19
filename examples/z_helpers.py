@@ -1,5 +1,7 @@
 import numpy as np
-from simtk import unit
+import pint
+
+ureg = pint.UnitRegistry()
 
 def setLabels(rdmol):
     for atom in rdmol.GetAtoms():
@@ -25,9 +27,11 @@ def is_z_valid(zm, rdmol):
     return is_ok
 
 def calc_rmsd(xyz1, xyz2):
-    diff = xyz1-xyz2
-    rmsd = np.sqrt(np.mean(diff**2))*unit.angstrom
-    return rmsd
+    diff = xyz1.to(ureg.angstrom).magnitude-xyz2.to(ureg.angstrom).magnitude
+    rmsd = np.sqrt(np.mean(diff**2))
+    return rmsd*ureg.angstrom
 
 def calc_max(xyz1, xyz2):
-    return np.max(xyz1-xyz2).in_units_of(unit.angstrom)
+    diff = xyz1.to(ureg.angstrom).magnitude-xyz2.to(ureg.angstrom).magnitude
+    maxdiff = np.max(diff)
+    return maxdiff * ureg.angstrom
